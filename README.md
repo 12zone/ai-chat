@@ -1,4 +1,4 @@
-# AI Chat（QAsystem）
+# AI Chat（QAsystem）（1.0）
 
 基于 **RAG（检索增强生成）** 的规章制度问答系统：后端负责文档入库、向量检索与大模型对话；前端提供登录、对话、文件管理与个人资料等页面。仓库内为 **前后端分离** 的两个子项目。
 
@@ -14,9 +14,7 @@
 - **用户与权限**：JWT 无状态认证；角色 `ADMIN` / `USER`（导入、部分文件写操作等仅管理员）。
 - **对话**：结合向量检索上下文，支持 OpenAI / DeepSeek 等（见 Spring AI 配置）。
 - **知识库**：文件上传与列表；向量化与检索（Milvus 或本地 fallback，见配置与文档）。
-- **数据导入**：可选在 `QAsystem/src/main/resources/data.json` 放置导入数据（该文件默认 **不提交 Git**，见 [.gitignore](.gitignore)）。
-
-更细的向量索引与排查说明见：[QAsystem/docs/RAG-索引与排查.md](QAsystem/docs/RAG-索引与排查.md)。
+- **数据导入**：可选在 `QAsystem/src/main/resources/data.json` 放置导入数据（该文件默认 **不提交 Git**
 
 ---
 
@@ -28,7 +26,7 @@
 | Maven | 使用项目自带 `mvnw` / `mvnw.cmd` 即可 |
 | Node.js | `^20.19.0` 或 `>=22.12.0`（见 `qasystem-web/package.json`） |
 | MySQL | 与 `application.yml` 中数据源一致；需先创建数据库（如 `qasystem`） |
-| 大模型与嵌入 | 配置 **DeepSeek**（对话）与 **OpenAI**（嵌入等）的 API Key；详见配置模板 |
+| 大模型与嵌入 | 配置 **DeepSeek**（对话）与 **OpenAI**（嵌入等）的 API Key |
 
 ---
 
@@ -58,9 +56,9 @@ cd QAsystem
 .\mvnw.cmd spring-boot:run
 ```
 
-默认端口 **8080**（可在 `application.yml` 中修改 `server.port`）。
+默认端口 **8080**
 
-### 3. 默认账号（开发种子）
+### 3. 默认账号
 
 首次启动若数据库中无对应用户，会自动创建：
 
@@ -68,8 +66,6 @@ cd QAsystem
 |--------|------------|------|
 | `admin` | `admin123` | 管理员 + 用户 |
 | `user` | `user123` | 普通用户 |
-
-**生产环境请务必修改或关闭种子逻辑。**
 
 ---
 
@@ -111,11 +107,4 @@ npm run build
 ## 常见问题
 
 1. **前端连不上后端**：确认本机 `8080` 已监听，且浏览器访问的是 Vite 开发地址（由代理转发 `/api`）。
-2. **对话或检索无结果**：检查 OpenAI Key、嵌入模型名与向量维度是否一致；必要时使用管理员账号调用「重建向量索引」，详见 [RAG-索引与排查.md](QAsystem/docs/RAG-索引与排查.md)。
-3. **配置不要进 Git**：`application.yml`、`data.json`、`.env` 等已在 `.gitignore` 中；协作时只提交 `application.example.yml` 与代码。
-
----
-
-## 许可证
-
-未在仓库中统一指定许可证时，默认保留所有权利；如需开源请自行补充 `LICENSE` 文件。
+2. **对话或检索无结果**：检查 OpenAI Key、嵌入模型名与向量维度是否一致；必要时使用管理员账号调用「重建向量索引」（暂未配置key  1.0）
