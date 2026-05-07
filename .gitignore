@@ -1,0 +1,102 @@
+# =============================================================================
+# ai-chat 仓库根目录（QAsystem 后端 + qasystem-web 前端）
+# 子目录内另有 .gitignore，此处覆盖跨模块与易误提交的大文件
+# =============================================================================
+
+# --- 后端 QAsystem（Spring Boot / Maven）---
+QAsystem/target/
+**/target/
+*.jar
+*.war
+*.ear
+*.class
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+dependency-reduced-pom.xml
+.flattened-pom.xml
+.mvn/wrapper/maven-wrapper.jar
+
+# 本地配置与密钥（勿提交）
+QAsystem/src/main/resources/application.yml
+**/application-local.yml
+**/application-local.properties
+**/.env
+**/.env.*
+!**/.env.example
+
+# 业务数据与导入 JSON（仅保留 application.example.yml 作模板）
+**/data.json
+QAsystem/src/main/resources/data/
+QAsystem/data/
+
+# Docker / 向量库等本地数据卷（体积大、机器相关）
+QAsystem/volumes/
+**/volumes/
+
+# --- 前端 qasystem-web（Vite / Vue）---
+qasystem-web/node_modules/
+**/node_modules/
+qasystem-web/dist/
+qasystem-web/dist-ssr/
+**/dist/
+**/dist-ssr/
+**/build/
+.cache/
+.parcel-cache/
+.turbo/
+.output/
+.vite/
+.vercel/
+*.timestamp-*-*.mjs
+
+# --- 日志与诊断 ---
+**/*.log
+logs/
+**/logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+hs_err_pid*
+replay_pid*
+*.hprof
+
+# --- IDE / 编辑器 ---
+**/.idea/
+**/*.iml
+**/*.iws
+**/*.ipr
+**/.vscode/*
+!**/.vscode/extensions.json
+.project
+.classpath
+.settings/
+.factorypath
+.apt_generated
+
+# --- 系统杂项 ---
+**/.DS_Store
+**/Thumbs.db
+*.tmp
+*.bak
+*.orig
+*.swp
+*~
+
+# --- 前端测试与覆盖率 ---
+coverage/
+**/coverage/
+test-results/
+playwright-report/
+cypress/videos/
+cypress/screenshots/
+__screenshots__/
+
+# --- 工具缓存 ---
+**/.eslintcache
+**/*.tsbuildinfo
+
+# --- Cursor（若需提交 .cursor/rules 等，可删掉下一行）---
+.cursor/

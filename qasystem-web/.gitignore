@@ -1,0 +1,67 @@
+# Env / secrets (Vite may use VITE_*; never commit real keys)
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+**/node_modules/
+.DS_Store
+dist
+dist-ssr
+**/dist/
+coverage
+*.local
+
+# 构建缓存 / 工具链
+.cache/
+.parcel-cache/
+.turbo/
+.output/
+.vite/
+.vercel/
+
+# 压缩包（误拖进项目时）
+*.zip
+*.tar.gz
+*.tgz
+
+# Playwright / E2E（若以后加上）
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# 可选：Cursor
+.cursor/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+*.tsbuildinfo
+
+.eslintcache
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Vitest
+__screenshots__/
+
+# Vite
+*.timestamp-*-*.mjs
